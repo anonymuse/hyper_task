@@ -1,3 +1,6 @@
 FROM alpine:latest
-apk update && apk upgrade
-run apk add --no-cache task
+MAINTAINER Jesse White <anonymuse@gmail.com>
+RUN apk add --update \
+    libgcc gmp nettle libffi libtasn1 p11-kit \
+    gnutls libstdc++ libuuid task \
+  && rm -rf /var/cache/apk/*
